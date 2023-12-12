@@ -10,7 +10,7 @@ import { cn } from "@/lib/utils"
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata = {
-  title: siteConfig.name,
+  title: 'Home | ' + siteConfig.name,
   description: siteConfig.description
 }
 
@@ -31,7 +31,9 @@ export default function RootLayout({ children }) {
                   <MainNav items={navConfig.mainNav} />
                 </div>
               </header>
-              <main className="flex-1">{children}</main>
+              <main className="flex-1">
+                {children}
+              </main>
               <SiteFooter />
             </div>
           </ThemeProvider>

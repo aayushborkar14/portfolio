@@ -21,7 +21,7 @@ export function MainNav({ items, children }) {
         </span>
       </Link>
       {items?.length ? (
-        <nav className="hidden gap-10 md:flex lg:gap-10">
+        <nav className="hidden md:flex gap-10">
           {items?.map((item, index) => (
             <Link
               key={index}
