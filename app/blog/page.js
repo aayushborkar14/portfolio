@@ -12,7 +12,7 @@ export default async function BlogPage() {
     <div className="container py-10 flex flex-col gap-y-6 md:gap-y-10">
       <div className="text-4xl md:text-6xl font-bold"> Blog</div>
       <hr className="bg-gray-400 border-0 h-px" />
-      <div className="grid auto-rows-auto grid-cols-1 gap-4 sm:grid-cols-2">
+      <div className="grid auto-rows-auto grid-cols-1 gap-y-16 sm:gap-4 sm:grid-cols-2">
         {postEdges.map((post) => <PostCard post={post.node} />)}
       </div>
     </div>)

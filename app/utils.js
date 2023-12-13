@@ -32,9 +32,31 @@ query GetPosts {
   }
 }
 `
+const GET_RECENT_POSTS = `
+query GetRecentPosts {
+  posts(orderBy: publishedAt_ASC, last: 3) {
+    title
+    featuredImage {
+      url
+    }
+    createdAt
+    slug
+    categories {
+      name
+      slug
+    }
+  }
+}
+`
 
 export const getPosts = cache(async () => {
   const hygraph = new GraphQLClient(graphqlAPI)
   const data = await hygraph.request(GET_POSTS);
   return data.postsConnection.edges
+})
+
+export const getRecentPosts = cache(async () => {
+  const hygraph = new GraphQLClient(graphqlAPI)
+  const data = await hygraph.request(GET_RECENT_POSTS);
+  return data.posts
 })
