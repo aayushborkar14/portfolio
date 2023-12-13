@@ -60,3 +60,35 @@ export const getRecentPosts = cache(async () => {
   const data = await hygraph.request(GET_RECENT_POSTS);
   return data.posts
 })
+
+export const getPostDetails = cache(async (slug) => {
+  const hygraph = new GraphQLClient(graphqlAPI)
+  const data = await hygraph.request(`
+    query GetPostDetails {
+      post(where: {slug: "${slug}"}) {
+        author {
+          bio
+          name
+          id
+          photo {
+            url
+          }
+        }
+        createdAt
+        slug
+        title
+      excerpt
+      featuredImage {
+        url
+      }
+      categories {
+        name
+        slug
+      }
+      content {
+        raw
+      }
+    }
+  }`)
+  return data.post
+})
