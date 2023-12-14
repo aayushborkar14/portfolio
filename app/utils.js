@@ -23,7 +23,11 @@ query GetPosts {
           url
         }
         featuredPost
-        categories {
+        category {
+          name
+          slug
+        }
+        tags {
           name
           slug
         }
@@ -41,7 +45,11 @@ query GetRecentPosts {
     }
     createdAt
     slug
-    categories {
+    tags {
+      name
+      slug
+    }
+    category {
       name
       slug
     }
@@ -77,18 +85,22 @@ export const getPostDetails = cache(async (slug) => {
         createdAt
         slug
         title
-      excerpt
-      featuredImage {
-        url
+        excerpt
+        featuredImage {
+          url
+        }
+        tags {
+          name
+          slug
+        }
+        content {
+          raw
+        }
+        category {
+          name
+          slug
+        }
       }
-      categories {
-        name
-        slug
-      }
-      content {
-        raw
-      }
-    }
-  }`)
+    }`)
   return data.post
 })
