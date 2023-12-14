@@ -3,6 +3,7 @@ import { formatDate } from "@/lib/utils"
 import Link from "next/link"
 import { badgeVariants } from "@/components/ui/badge"
 import Image from "next/image"
+import PostContent from "@/components/post-content"
 
 export default async function Page({ params }) {
   const post = await getPostDetails(params.slug)
@@ -18,19 +19,25 @@ export default async function Page({ params }) {
         <div className="">by {post.author.name}</div>
       </span>
       <img src={post.featuredImage.url} className="h-full w-full" />
-      <div className="flex w-full">
-        <div className="w-1/5 pr-16">
-          <div className="flex flex-col gap-y-3">
+      <div className="flex flex-wrap gap-3">
+        <div>Tags:</div>
+        {post.tags.map((tag) => <Link className={badgeVariants({ variant: "default" })} href={`/tag/${tag.slug}`}>{tag.name}</Link>)}
+      </div>
+      <div className="flex flex-col md:flex-row w-full gap-y-8">
+        <div className="md:w-1/5 md:pr-16">
+          <div className="flex md:flex-col md:gap-y-3 gap-x-3">
             <Image src={post.author.photo.url} width={100} height={100} className="rounded-sm" />
-            <hr className="border-0 bg-gray-200 h-px" />
-            <div className="">{post.author.name}</div>
-            <hr className="border-0 bg-gray-200 h-px" />
-            <div>{post.author.bio}</div>
-            <hr className="border-0 bg-gray-200 h-px" />
+            <div className="flex flex-col justify-center md:justify-normal gap-y-3">
+              <hr className="border-0 bg-gray-200 h-px" />
+              <div className="font-semibold">{post.author.name}</div>
+              <hr className="border-0 bg-gray-200 h-px" />
+              <div className="text-justify hyphens-auto">{post.author.bio}</div>
+              <hr className="border-0 bg-gray-200 h-px" />
+            </div>
           </div>
         </div>
-        <div className="w-3/5 text-lg">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris venenatis pretium sollicitudin. Ut efficitur lectus ac dignissim molestie. Mauris commodo metus dui, ut venenatis ante pretium ut. Proin accumsan enim eget mi rhoncus dapibus. Fusce ac varius urna. Curabitur venenatis posuere libero eu posuere. Ut posuere commodo elit. Fusce sed turpis arcu. Cras condimentum felis justo, sit amet vehicula justo porttitor ut. Quisque lobortis mauris ac est varius, sed semper est feugiat. Aliquam a tincidunt ipsum, id ultrices arcu. Curabitur vel est id urna sodales scelerisque ac et nunc. In hac habitasse platea dictumst. Vivamus ultricies magna eget orci maximus viverra. Integer vitae consectetur dolor.</div>
-        <div className="w-1/5"></div>
+        <div className="md:w-3/5"><PostContent postContent={post.content.raw.children} /></div>
+        <div className="md:w-1/5"></div>
       </div>
     </div>
   )
