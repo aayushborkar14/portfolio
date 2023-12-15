@@ -41,7 +41,7 @@ export default function PostContent({ postContent }) {
       case 'heading-six':
         return <h6 key={index} className="text-lg font-semibold mb-4">{modifiedText.map((item, i) => <React.Fragment key={i}>{item}</React.Fragment>)}</h6>
       case 'code-block':
-        return <CodeBlock className="mb-4" code={modifiedText} />
+        return <div className="mb-8"><CodeBlock code={modifiedText} /></div>
       case 'image':
         return (
           <img
