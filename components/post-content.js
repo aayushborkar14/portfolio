@@ -1,4 +1,6 @@
 import * as React from "react"
+import Link from "next/link";
+import CodeBlock from "./code-block";
 
 export default function PostContent({ postContent }) {
   const getContentFragment = (index, text, obj, type) => {
@@ -13,6 +15,13 @@ export default function PostContent({ postContent }) {
       }
       if (obj.underline) {
         modifiedText = (<u key={index}>{modifiedText}</u>)
+      }
+      if (obj.code) {
+        modifiedText = (<span key={index} className="font-mono text-pink-600 bg-gray-800 rounded-sm p-1 text-sm">{modifiedText}</span>)
+      }
+      if (obj.type == 'link') {
+        const text = obj.children.map(ob => ob.text).join(' ')
+        modifiedText = (<Link key={index} href={obj.href} className="underline">{text}</Link>)
       }
     }
 
@@ -31,6 +40,8 @@ export default function PostContent({ postContent }) {
         return <h5 key={index} className="text-xl font-semibold mb-4">{modifiedText.map((item, i) => <React.Fragment key={i}>{item}</React.Fragment>)}</h5>
       case 'heading-six':
         return <h6 key={index} className="text-lg font-semibold mb-4">{modifiedText.map((item, i) => <React.Fragment key={i}>{item}</React.Fragment>)}</h6>
+      case 'code-block':
+        return <CodeBlock className="mb-4" code={modifiedText} />
       case 'image':
         return (
           <img
@@ -39,6 +50,7 @@ export default function PostContent({ postContent }) {
             height={obj.height}
             width={obj.width}
             src={obj.src}
+            className="mb-8"
           />
         )
       default:
