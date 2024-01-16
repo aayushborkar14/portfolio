@@ -17,7 +17,7 @@ export default function PostContent({ postContent }) {
         modifiedText = (<u key={index}>{modifiedText}</u>)
       }
       if (obj.code) {
-        modifiedText = (<span key={index} className="font-mono text-pink-600 bg-gray-800 rounded-sm p-1 text-sm">{modifiedText}</span>)
+        modifiedText = (<span key={index} className="font-mono text-pink-600 bg-muted rounded-sm p-1 text-sm">{modifiedText}</span>)
       }
     }
 

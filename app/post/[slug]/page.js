@@ -28,11 +28,11 @@ export default async function Page({ params }) {
           <div className="flex md:flex-col md:gap-y-3 gap-x-3">
             <Image src={post.author.photo.url} width={100} height={100} className="rounded-sm" />
             <div className="flex flex-col justify-center md:justify-normal gap-y-3">
-              <hr className="border-0 bg-gray-200 h-px" />
+              <hr className="border-0 bg-foreground h-px" />
               <div className="font-semibold">{post.author.name}</div>
-              <hr className="border-0 bg-gray-200 h-px" />
+              <hr className="border-0 bg-foreground h-px" />
               <div className="text-justify hyphens-auto">{post.author.bio}</div>
-              <hr className="border-0 bg-gray-200 h-px" />
+              <hr className="border-0 bg-foreground h-px" />
             </div>
           </div>
         </div>

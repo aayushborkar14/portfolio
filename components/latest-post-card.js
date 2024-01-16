@@ -18,7 +18,7 @@ import { cn } from "@/lib/utils"
 
 export function LatestPostCard({ post }) {
   return (
-    <Card className="max-w-full my-4 relative hover:bg-white/10 duration-300">
+    <Card className="max-w-full my-4 relative hover:bg-accent duration-300">
       <div className="flex items-center">
         <Avatar className="ml-8">
           <AvatarImage src={post.featuredImage.url} />
