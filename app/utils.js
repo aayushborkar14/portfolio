@@ -38,7 +38,7 @@ query GetPosts {
 `
 const GET_RECENT_POSTS = `
 query GetRecentPosts {
-  posts(orderBy: publishedAt_ASC, last: 3) {
+  posts(orderBy: publishedAt_DESC, first: 3) {
     title
     featuredImage {
       url
