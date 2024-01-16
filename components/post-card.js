@@ -7,7 +7,7 @@ import { cn } from "@/lib/utils"
 
 export function PostCard({ post }) {
   return (
-    <div className="relative flex flex-col max-w-full gap-y-1 sm:p-6 hover:bg-accent rounded-3xl duration-300">
+    <div className="relative flex flex-col max-w-full gap-y-1 p-6 hover:bg-accent rounded-3xl duration-300">
       <div className="w-full h-60 relative sm:h-40 md:h-60 mb-2">
         <Image fill src={post.featuredImage.url} className="rounded-xl object-cover" />
       </div>
