@@ -1,7 +1,12 @@
 export const hobbyData = {
   "anime": {
-    name: "Watching Anime",
+    name: "Watching anime",
     desc: "I like watching anime in my free time",
-    image: "https://assets-prd.ignimgs.com/2022/08/17/top25animecharacters-blogroll-1660777571580.jpg",
+    image: "/static/images/anime.jpg",
+  },
+  "books": {
+    name: "Reading books",
+    desc: "I like reading books",
+    image: "/static/images/books.jpg",
   },
 }

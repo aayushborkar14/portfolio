@@ -4,6 +4,11 @@ import Link from "next/link"
 import { badgeVariants } from "@/components/ui/badge"
 import Image from "next/image"
 import PostContent from "@/components/post-content"
+import { siteConfig } from "@/config/site"
+
+export const metadata = {
+  title: "Blog | " + siteConfig.name,
+}
 
 export default async function PostPage({ params }) {
   const post = await getPostDetails(params.slug)

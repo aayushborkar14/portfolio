@@ -1,6 +1,6 @@
 import { getPosts } from "@/app/utils"
 import { siteConfig } from "@/config/site"
-import { PostCard } from "@/components/post-card";
+import { PostCard } from "@/components/post-card"
 
 export const metadata = {
   title: "Blog | " + siteConfig.name,
