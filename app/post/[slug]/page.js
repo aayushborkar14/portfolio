@@ -5,7 +5,7 @@ import { badgeVariants } from "@/components/ui/badge"
 import Image from "next/image"
 import PostContent from "@/components/post-content"
 
-export default async function Page({ params }) {
+export default async function PostPage({ params }) {
   const post = await getPostDetails(params.slug)
   return (
     <div className="container flex flex-col max-w-full items-start gap-8">
