@@ -7,10 +7,10 @@ export const metadata = {
 
 export default async function ContactPage() {
   return (
-    <div className="container py-10 flex flex-col gap-y-6 md:gap-y-10">
-      <div className="text-4xl md:text-6xl font-bold">Contact me</div>
+    <div className="container py-10 flex flex-col gap-y-4 md:gap-y-6">
+      <div className="text-2xl md:text-4xl font-bold">Contact me</div>
       <hr className="bg-muted-foreground border-0 h-px" />
-      <ContactForm />
+      <div className="md:px-56"><ContactForm /></div>
     </div>)
 }
 
