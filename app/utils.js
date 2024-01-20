@@ -1,7 +1,7 @@
 import { cache } from 'react'
 import { GraphQLClient } from 'graphql-request';
 
-const graphqlAPI = process.env.NEXT_PUBLIC_HYGRAPH_ENDPOINT
+const graphqlAPI = process.env.HYGRAPH_ENDPOINT
 const GET_POSTS = `
 query GetPosts {
   postsConnection {

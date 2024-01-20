@@ -7,11 +7,8 @@ import { Button } from "@/components/ui/button"
 import {
   Form,
   FormControl,
-  FormDescription,
   FormField,
   FormItem,
-  FormLabel,
-  FormMessage,
 } from "@/components/ui/form"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "./ui/textarea"
@@ -19,7 +16,8 @@ import { Textarea } from "./ui/textarea"
 const formSchema = z.object({
   name: z.string().min(2, { message: "Name must be at least 2 characters." }).max(50, { message: "Character limit hit" }),
   email: z.string().min(1, { message: "Your email is required." }).email("This is not a valid email."),
-  message: z.string().min(1, { message: "Message must be at least 1 character." }),
+  subject: z.string().min(1, { message: "Subject is required." }),
+  message: z.string().min(1, { message: "Message is required." }),
 })
 
 export function ContactForm() {
@@ -31,8 +29,16 @@ export function ContactForm() {
       message: "",
     },
   })
-  function onSubmit(values) {
-    console.log(values)
+  async function onSubmit(values) {
+    const res = await fetch("/api/sendgrid", {
+      body: JSON.stringify(values),
+      headers: {
+        "Content-Type": "application/json",
+      },
+      method: "POST",
+    })
+    if (res.ok) { }
+    else { }
   }
   return (
     <Form>
@@ -41,7 +47,7 @@ export function ContactForm() {
           render={({ field }) => (
             <FormItem>
               <FormControl>
-                <Input placeholder="Name" {...field} />
+                <Input placeholder="Full name" {...field} />
               </FormControl>
             </FormItem>
           )} />
@@ -50,6 +56,14 @@ export function ContactForm() {
             <FormItem>
               <FormControl>
                 <Input placeholder="Email" {...field} />
+              </FormControl>
+            </FormItem>
+          )} />
+        <FormField control={form.control} name="subject"
+          render={({ field }) => (
+            <FormItem>
+              <FormControl>
+                <Input placeholder="Subject" {...field} />
               </FormControl>
             </FormItem>
           )} />
