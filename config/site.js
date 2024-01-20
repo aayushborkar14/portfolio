@@ -5,7 +5,7 @@ export const siteConfig = {
   url: "https://aayushborkar14.github.io/",
   links: {
     twitter: "https://twitter.com/",
-    repo: "https://github.com/aayushborkar14/blog",
+    repo: "https://github.com/aayushborkar14/portfolio",
     github: "https://github.com/aayushborkar14",
   },
 }
