@@ -42,7 +42,6 @@ export default async function PostPage({ params }) {
           </div>
         </div>
         <div className="md:w-3/5"><PostContent postContent={post.content.raw.children} /></div>
-        <div className="md:w-1/5"></div>
       </div>
     </div>
   )
