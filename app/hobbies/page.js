@@ -11,7 +11,7 @@ export default async function HobbiesPage() {
     <div className="text-4xl md:text-6xl font-bold">Hobbies</div>
     <hr className="bg-muted-foreground border-0 h-px" />
     <div className="flex flex-col gap-y-2 md:gap-y-3 text-xl md:text-2xl">
-      {Object.keys(hobbyData).map(slug => <Link href={`/hobby/${slug}`} className="text-xl">{hobbyData[slug].name}</Link>)}
+      {Object.keys(hobbyData).map(slug => <Link key={slug} href={`/hobby/${slug}`} className="text-xl">{hobbyData[slug].name}</Link>)}
     </div>
   </div >)
 }

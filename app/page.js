@@ -2,7 +2,8 @@ import { getRecentPosts } from "./utils"
 import { LatestPostCard } from "@/components/latest-post-card";
 
 export default async function Home() {
-  const recentPosts = await getRecentPosts();
+  const recentPosts = await getRecentPosts()
+  console.log(recentPosts)
   return (
     <main>
       <div className='flex flex-col container'>
@@ -10,7 +11,7 @@ export default async function Home() {
         <div className='mt-4 text-lg md:mt-10'>I'm a student at IIT Bombay. I am passionate about Data Science, Machine Learning, Web Development, Competitive Programming and CTFs.</div>
         <div className='text-2xl md:text-4xl mt-4 md:mt-10 font-bold'>Latest</div>
         <div className="flex flex-col">
-          {recentPosts.map((post) => <LatestPostCard post={post} />)}
+          {recentPosts.map((post) => <LatestPostCard key={post.slug} post={post} />)}
         </div>
       </div>
     </main>
