@@ -1,6 +1,5 @@
 import * as React from "react"
-import Link from "next/link";
-import CodeBlock from "./code-block";
+import Link from "next/link"
 
 export default function PostContent({ postContent }) {
   const getContentFragment = (index, text, obj, type) => {
@@ -37,7 +36,7 @@ export default function PostContent({ postContent }) {
       case 'heading-six':
         return <h6 key={index} className="text-lg font-semibold mb-4">{modifiedText.map((item, i) => <React.Fragment key={i}>{item}</React.Fragment>)}</h6>
       case 'code-block':
-        return <div key={index} className="mb-8"><CodeBlock code={modifiedText} /></div>
+        return <div key={index} className="mb-8">{modifiedText}</div>
       case 'numbered-list':
         return <ol key={index} className="text-lg mb-4 list-decimal list-inside">{modifiedText.map((item, i) => <React.Fragment key={i}>{item}</React.Fragment>)}</ol>
       case 'bulleted-list':
