@@ -31,7 +31,7 @@ export function LatestPostCard({ post }) {
               <span className="flex"><Link className={cn('z-50', badgeVariants({ variant: "outline" }))} href={`/category/${post.category.slug}`}>{post.category.name}</Link></span>
             </CardDescription>
             <span className="flex justify-start gap-2 flex-wrap my-2">
-              {post.tags.map((tag) => <Link className={cn("z-50", badgeVariants({ variant: "destructive" }))} href={`/tag/${tag.slug}`}>{tag.name}</Link>)}
+              {post.tags.map((tag) => <Link key={tag.slug} className={cn("z-50", badgeVariants({ variant: "destructive" }))} href={`/tag/${tag.slug}`}>{tag.name}</Link>)}
             </span>
           </CardHeader>
         </div>

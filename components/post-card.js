@@ -12,7 +12,7 @@ export function PostCard({ post }) {
         <Image fill src={post.featuredImage.url} className="rounded-xl object-cover" />
       </div>
       <span className="flex justify-start gap-2 flex-wrap my-2">
-        {post.tags.map((tag) => <Link className={cn("z-50", badgeVariants({ variant: "destructive" }))} href={`/tag/${tag.slug}`}>{tag.name}</Link>)}
+        {post.tags.map((tag) => <Link key={tag.slug} className={cn("z-50", badgeVariants({ variant: "destructive" }))} href={`/tag/${tag.slug}`}>{tag.name}</Link>)}
       </span>
       <div className="font-bold md:text-2xl text-xl">{post.title}</div>
       <span className="flex flex-wrap gap-x-3 gap-y-1">

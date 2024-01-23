@@ -8,7 +8,6 @@ export const metadata = {
 
 export default async function BlogPage() {
   const postEdges = await getPosts()
-  console.log(postEdges)
   return (
     <div className="container py-10 flex flex-col gap-y-6 md:gap-y-10">
       <div className="text-4xl md:text-6xl font-bold"> Blog</div>

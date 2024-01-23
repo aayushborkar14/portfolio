@@ -23,15 +23,15 @@ export default async function PostPage({ params }) {
         <div>•</div>
         <div className="">by {post.author.name}</div>
       </span>
-      <img src={post.featuredImage.url} className="h-full w-full" />
+      <img src={post.featuredImage.url} className="h-full w-full" alt="" />
       <div className="flex flex-wrap gap-3">
         <div>Tags:</div>
-        {post.tags.map((tag) => <Link className={badgeVariants({ variant: "default" })} href={`/tag/${tag.slug}`}>{tag.name}</Link>)}
+        {post.tags.map((tag) => <Link key={tag.slug} className={badgeVariants({ variant: "default" })} href={`/tag/${tag.slug}`}>{tag.name}</Link>)}
       </div>
       <div className="flex flex-col md:flex-row w-full gap-y-8">
         <div className="md:w-1/5 md:pr-16">
           <div className="flex md:flex-col md:gap-y-3 gap-x-3">
-            <Image src={post.author.photo.url} width={100} height={100} className="rounded-sm" />
+            <Image src={post.author.photo.url} width={100} height={100} className="rounded-sm" alt="" />
             <div className="flex flex-col justify-center md:justify-normal gap-y-3">
               <hr className="border-0 bg-foreground h-px" />
               <div className="font-semibold">{post.author.name}</div>
