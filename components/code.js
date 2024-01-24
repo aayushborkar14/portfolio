@@ -21,7 +21,7 @@ async function highlightCode(code) {
     .use(remarkParse)
     .use(remarkRehype)
     .use(rehypePrettyCode, {
-      keepBackground: false,
+      keepBackground: true,
     })
     .use(rehypeStringify)
     .process(code)
