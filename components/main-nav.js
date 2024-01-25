@@ -1,16 +1,15 @@
-"use client"
+"use client";
 
-import * as React from "react"
-import Link from "next/link"
+import * as React from "react";
+import Link from "next/link";
 
-import { siteConfig } from "@/config/site"
-import { cn } from "@/lib/utils"
-import { Icons } from "@/components/icons"
-import { MobileNav } from "@/components/mobile-nav"
-
+import { siteConfig } from "@/config/site";
+import { cn } from "@/lib/utils";
+import { Icons } from "@/components/icons";
+import { MobileNav } from "@/components/mobile-nav";
 
 export function MainNav({ items, children }) {
-  const [showMobileMenu, setShowMobileMenu] = React.useState(false)
+  const [showMobileMenu, setShowMobileMenu] = React.useState(false);
 
   return (
     <div className="flex justify-between w-full md:pt-4">
@@ -28,7 +27,7 @@ export function MainNav({ items, children }) {
               href={item.disabled ? "#" : item.href}
               className={cn(
                 "flex items-center font-medium transition-colors hover:text-foreground sm:text-md text-foreground/80",
-                item.disabled && "cursor-not-allowed opacity-80"
+                item.disabled && "cursor-not-allowed opacity-80",
               )}
             >
               {item.title}
@@ -47,5 +46,5 @@ export function MainNav({ items, children }) {
         <MobileNav items={items}>{children}</MobileNav>
       )}
     </div>
-  )
+  );
 }

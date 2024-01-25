@@ -22,7 +22,7 @@ import {
   Twitter,
   User,
   X,
-} from "lucide-react"
+} from "lucide-react";
 
 export const Icons = {
   logo: Command,
@@ -65,4 +65,4 @@ export const Icons = {
   ),
   twitter: Twitter,
   check: Check,
-}
+};

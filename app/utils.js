@@ -1,7 +1,7 @@
-import { cache } from 'react'
-import { GraphQLClient } from 'graphql-request';
+import { cache } from "react";
+import { GraphQLClient } from "graphql-request";
 
-const graphqlAPI = process.env.HYGRAPH_ENDPOINT
+const graphqlAPI = process.env.HYGRAPH_ENDPOINT;
 const GET_POSTS = `
 query GetPosts {
   postsConnection {
@@ -35,7 +35,7 @@ query GetPosts {
     }
   }
 }
-`
+`;
 const GET_RECENT_POSTS = `
 query GetRecentPosts {
   posts(orderBy: publishedAt_DESC, first: 3) {
@@ -55,22 +55,22 @@ query GetRecentPosts {
     }
   }
 }
-`
+`;
 
 export const getPosts = cache(async () => {
-  const hygraph = new GraphQLClient(graphqlAPI)
+  const hygraph = new GraphQLClient(graphqlAPI);
   const data = await hygraph.request(GET_POSTS);
-  return data.postsConnection.edges
-})
+  return data.postsConnection.edges;
+});
 
 export const getRecentPosts = cache(async () => {
-  const hygraph = new GraphQLClient(graphqlAPI)
+  const hygraph = new GraphQLClient(graphqlAPI);
   const data = await hygraph.request(GET_RECENT_POSTS);
-  return data.posts
-})
+  return data.posts;
+});
 
 export const getPostDetails = cache(async (slug) => {
-  const hygraph = new GraphQLClient(graphqlAPI)
+  const hygraph = new GraphQLClient(graphqlAPI);
   const data = await hygraph.request(`
     query GetPostDetails {
       post(where: {slug: "${slug}"}) {
@@ -101,6 +101,6 @@ export const getPostDetails = cache(async (slug) => {
           slug
         }
       }
-    }`)
-  return data.post
-})
+    }`);
+  return data.post;
+});

@@ -17,4 +17,4 @@ export const navConfig = {
       href: "/contact",
     },
   ],
-}
+};
