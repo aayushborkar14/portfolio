@@ -1,6 +1,6 @@
 # Portfolio
 
-This is a personal blog + portfolio website built with NextJS, deployed on vercel\
+This is a personal blog + portfolio website built with NextJS, deployed on vercel [here](https://portfolio-tau-six-62.vercel.app) \
 \
 ![Vercel](https://vercelbadge.vercel.app/api/aayushborkar14/portfolio)
 

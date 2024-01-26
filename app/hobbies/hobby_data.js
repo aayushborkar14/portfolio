@@ -9,4 +9,9 @@ export const hobbyData = {
     desc: "I like reading books",
     image: "/static/images/books.jpg",
   },
+  games: {
+    name: "Playing games",
+    desc: "I like playing games",
+    image: "/static/images/games.jpg",
+  },
 };
