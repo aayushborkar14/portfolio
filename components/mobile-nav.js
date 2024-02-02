@@ -1,12 +1,16 @@
+"use client";
+
 import * as React from "react";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 
 import { siteConfig } from "@/config/site";
 import { cn } from "@/lib/utils";
 import { useLockBody } from "@/hooks/use-lock-body";
 import { Icons } from "@/components/icons";
 
-export function MobileNav({ items, children }) {
+export function MobileNav({ items, children, setShowMobileMenu }) {
+  const router = useRouter();
   useLockBody();
 
   return (
@@ -22,16 +26,19 @@ export function MobileNav({ items, children }) {
         </Link>
         <nav className="grid grid-flow-row auto-rows-max text-sm">
           {items.map((item, index) => (
-            <Link
+            <button
               key={index}
-              href={item.disabled ? "#" : item.href}
+              onClick={() => {
+                setShowMobileMenu(false);
+                router.push(item.disabled ? "#" : item.href);
+              }}
               className={cn(
                 "flex w-full items-center rounded-md p-2 text-sm font-medium hover:underline",
                 item.disabled && "cursor-not-allowed opacity-60",
               )}
             >
               {item.title}
-            </Link>
+            </button>
           ))}
         </nav>
         {children}

@@ -43,7 +43,9 @@ export function MainNav({ items, children }) {
         <span className="font-bold">Menu</span>
       </button>
       {showMobileMenu && items && (
-        <MobileNav items={items}>{children}</MobileNav>
+        <MobileNav items={items} setShowMobileMenu={setShowMobileMenu}>
+          {children}
+        </MobileNav>
       )}
     </div>
   );
